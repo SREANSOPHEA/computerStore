@@ -1,0 +1,125 @@
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f4f6f9;
+    overflow-x: hidden;
+}
+
+        /* sidebar styling */
+.sidebar {
+    background: #1a2634;
+    color: #e9ecef;
+    transition: transform 0.25s ease;
+    z-index: 1030;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 260px;
+    overflow-y: auto;
+    padding-top: 1.5rem;
+}
+
+.sidebar-brand {
+    font-size: 1.4rem;
+    font-weight: 600;
+    padding: 0 1.2rem 1.5rem 1.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    margin-bottom: 1rem;
+}
+
+.sidebar .nav-link {
+    color: #cfdfed;
+    padding: 0.7rem 1.5rem;
+    margin: 0.2rem 0.8rem;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sidebar .nav-link:hover {
+    background: rgba(59,130,246,0.2);
+    color: white;
+}
+
+.sidebar .nav-link.active {
+    background: #3b82f6;
+    color: white;
+}
+
+.main-content {
+    margin-left: 260px;
+    /* padding: 1.5rem; */
+    padding: 10px;
+}
+
+/* mobile header */
+.mobile-header {
+    display: none;
+    background: white;
+    padding: 12px 20px;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+}
+
+.mobile-header .menu-toggle {
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+.nav-link[aria-expanded="true"] .bi-chevron-down {
+    transform: rotate(180deg);
+    transition: 0.3s;
+}
+.nav-link .bi-chevron-down {
+    transition: 0.3s;
+}
+
+/* responsive */
+@media (max-width: 992px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+    .sidebar.show-sidebar {
+        transform: translateX(0);
+    }
+    .main-content {
+        margin-left: 0;
+    }
+    .mobile-header {
+        display: flex;
+    }
+    .sidebar-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.5);
+        z-index: 1025;
+        display: none;
+    }
+    .sidebar-overlay.active {
+        display: block;
+    }
+}
+
+@media (min-width: 993px) {
+    .sidebar {
+        transform: translateX(0) !important;
+    }
+}
+
+.page-title{
+    font-size: 30px;
+}
